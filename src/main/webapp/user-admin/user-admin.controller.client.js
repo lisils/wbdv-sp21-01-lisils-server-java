@@ -70,7 +70,7 @@ function updateUser() {
 
 
 function deleteUser(event) {
-    alert("remove this user")
+    alert("A user was removed successfully!")
     var button = $(event.target)
     var index = button.attr("id")
     var id = users[index]._id
@@ -85,27 +85,27 @@ function renderUsers(users) {
     theTableBody.empty()
     for (var i = 0; i < users.length; i++) {
       var user = users[i]
-      theTableBody.prepend(`theTableBody
-  .append('<tr class="wbdv-template wbdv-user wbdv-hidden">
-                <td class="wbdv-username">${user.username}</td>
-                <td>&nbsp;</td>
-                <td class="wbdv-first-name">${user.firstname}</td>
-                <td class="wbdv-last-name">${user.lastname}</td>
-                <td class="wbdv-role">${user.role}</td>
-                <td class="wbdv-actions">
-                <span class="pull-right">
-                  <i class="fa-2x fa fa-times wbdv-remove" id="${i}"></i>
-                  <i class="fa-2x fa fa-pencil wbdv-select" id="${user._id}"></i>
-                </span>
-                </td>
-              </tr>')`)
+      theTableBody
+        .prepend(`theTableBody
+                  .append('<tr class="wbdv-template wbdv-user wbdv-hidden">
+                            <td class="wbdv-username">${user.username}</td>
+                            <td>&nbsp;</td>
+                            <td class="wbdv-first-name">${user.firstname}</td>
+                            <td class="wbdv-last-name">${user.lastname}</td>
+                            <td class="wbdv-role">${user.role}</td>
+                            <td class="wbdv-actions">
+                            <span class="pull-right">
+                              <i class="fa-2x fa fa-times wbdv-remove" id="${i}"></i>
+                              <i class="fa-2x fa fa-pencil wbdv-select" id="${user._id}"></i>
+                            </span>
+                            </td>
+                          </tr>')`)
     }
   
     $(".wbdv-remove").click(deleteUser)
   
     jQuery(".wbdv-select").click(selectUser)
   
-    // jQuery(".wbdv-search").click(searchUser)
   }
   
   
@@ -122,7 +122,7 @@ function renderUsers(users) {
     theTableBody = jQuery("tbody")
   
     $createBtn.click(function () {
-      alert("Create a new user!")
+      alert("A new user was created successfully!")
       var newUser = {
         username: $usernameFld.val(),
         password: $passwordFld.val(),
