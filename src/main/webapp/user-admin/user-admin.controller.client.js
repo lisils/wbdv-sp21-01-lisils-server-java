@@ -66,11 +66,11 @@ function updateUser() {
     $passwordFld.val("")
     $firstNameFld.val("")
     $lastNameFld.val("")
+    $roleFld.val("")
   }
 
 
 function deleteUser(event) {
-    alert("A user was removed successfully!")
     var button = $(event.target)
     var index = button.attr("id")
     var id = users[index]._id
@@ -89,14 +89,16 @@ function renderUsers(users) {
         .prepend(`theTableBody
                   .append('<tr class="wbdv-template wbdv-user wbdv-hidden">
                             <td class="wbdv-username">${user.username}</td>
-                            <td>&nbsp;</td>
+                            <td>********</td>
                             <td class="wbdv-first-name">${user.firstname}</td>
                             <td class="wbdv-last-name">${user.lastname}</td>
                             <td class="wbdv-role">${user.role}</td>
                             <td class="wbdv-actions">
                             <span class="pull-right">
-                              <i class="fa-2x fa fa-times wbdv-remove" id="${i}"></i>
-                              <i class="fa-2x fa fa-pencil wbdv-select" id="${user._id}"></i>
+                              
+                              <i class="float-right fa-2x fa fa-pencil wbdv-select" id="${user._id}"></i>
+                              <i class="float-right fa-2x fa fa-times wbdv-remove" id="${i}"></i>
+                              
                             </span>
                             </td>
                           </tr>')`)
@@ -122,7 +124,6 @@ function renderUsers(users) {
     theTableBody = jQuery("tbody")
   
     $createBtn.click(function () {
-      alert("A new user was created successfully!")
       var newUser = {
         username: $usernameFld.val(),
         password: $passwordFld.val(),
